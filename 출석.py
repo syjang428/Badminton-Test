@@ -111,6 +111,9 @@ if status == "출석":
         st.warning("아직 관리자가 출석 코드를 설정하지 않았습니다 ⚠️")
     elif st.session_state.attendance_input != latest_code:
         st.error("출석 코드가 올바르지 않습니다.")
+elif status == "결석":
+    # 결석일 때 사유 입력란 표시
+    st.session_state.absence_reason = st.text_input("결석 사유를 입력하세요", value=st.session_state.absence_reason)
 
 # ------------------ 제출 ------------------
 if st.button("제출"):
